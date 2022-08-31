@@ -2,6 +2,8 @@
 
 ## Usage
 
+Configure the `apostrophe-login-hcaptcha` module in the `app.js` file:
+
 ```javascript
 const apos = require('apostrophe')({
   modules: {
@@ -19,7 +21,7 @@ The login page will always display an [hCAPTCHA](https://docs.hcaptcha.com) prom
 
 ## Warnings
 
-If you have extensively overridden the `login.html` template in your project in the past, this module will make a good faith attempt to figure it out. However, if it does not work, you may need to add a `data-apos-login-form` attribute to the form and a `data-apos-login-submit-button` attribute to the submit button. Future overrides will likely include these since they are now in the `loginBase.html` template of Apostorphe.
+If you have extensively overridden the `login.html` template in your project in the past, this module will make a good faith attempt to figure it out. However, if it does not work, you may need to add a `data-apos-login-form` attribute to the form and a `data-apos-login-submit-button` attribute to the submit button. Future overrides will likely include these since they are now in the `loginBase.html` template of Apostrophe.
 
 ### Content security headers
 
