@@ -1,4 +1,4 @@
-const request = require('request-promise');
+const fetch = require('node-fetch');
 
 module.exports = {
   afterConstruct: function(self) {
@@ -22,15 +22,12 @@ module.exports = {
         throw 'Please check the box to confirm you are a human being.';
       }
       const uri = 'https://hcaptcha.com/siteverify';
-      const hcaptchaResponse = JSON.parse(await request({
-        method: 'POST',
-        uri,
-        form: {
-          response: hcaptcha,
-          secret: hcaptchaSecret
-        },
-        headers: {}
-      }));
+      const params = new URLSearchParams({
+        response: hcaptcha,
+        secret: hcaptchaSecret
+      });
+      const response = await fetch(uri, { method: 'POST', body: params });
+      const hcaptchaResponse = await response.json();
 
       if (!hcaptchaResponse.success) {
         throw 'Please check the box to confirm you are a human being.';
