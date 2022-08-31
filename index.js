@@ -26,7 +26,10 @@ module.exports = {
         response: hcaptcha,
         secret: hcaptchaSecret
       });
-      const response = await fetch(uri, { method: 'POST', body: params });
+      const response = await fetch(uri, {
+        method: 'POST',
+        body: params
+      });
       const hcaptchaResponse = await response.json();
 
       if (!hcaptchaResponse.success) {
