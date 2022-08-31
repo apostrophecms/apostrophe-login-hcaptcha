@@ -30,7 +30,7 @@ apos.define('apostrophe-login-hcaptcha', {
     $hcaptcha.attr('data-size', 'compact');
     $button.before($hcaptcha);
 
-    window.aposLoginRenderCaptcha = renderCaptcha;
+    window.aposLoginRenderHcaptcha = renderCaptcha;
     addHcaptchaScript();
 
     function addHcaptchaScript () {
@@ -40,7 +40,7 @@ apos.define('apostrophe-login-hcaptcha', {
       }
       var refreshable = document.querySelector('[data-apos-refreshable]');
       var hcaptchaScript = document.createElement('script');
-      hcaptchaScript.src = 'https://js.hcaptcha.com/1/api.js?onload=aposLoginRenderCaptcha&render=explicit';
+      hcaptchaScript.src = 'https://js.hcaptcha.com/1/api.js?onload=aposLoginRenderHcaptcha&render=explicit';
       hcaptchaScript.setAttribute('data-apos-hcaptcha-script', '');
       hcaptchaScript.setAttribute('async', '');
       hcaptchaScript.setAttribute('defer', '');
