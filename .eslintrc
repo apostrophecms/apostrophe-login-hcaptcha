@@ -1,3 +1,10 @@
 {
-  "extends": [ "apostrophe" ]
+  "extends": [ "apostrophe" ],
+  "overrides": [
+  {
+    "files": [ "public/js" ],
+    "rules": {
+      "no-var": "off"
+    }
+  }
 }
